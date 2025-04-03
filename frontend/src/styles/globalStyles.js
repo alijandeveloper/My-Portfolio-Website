@@ -14,10 +14,12 @@ export const useGlobalStyles = makeStyles((theme) => ({
   sectionTitle: {
     marginBottom: theme.spacing(4),
     textAlign: 'center',
+    fontWeight: 500,
   },
   contentLimit: {
     maxWidth: 1200,
     margin: '0 auto',
     width: '100%',
+    padding: theme.spacing(0, 2),
   },
 }));

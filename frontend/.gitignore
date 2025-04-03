@@ -11,6 +11,8 @@
 # production
 /build
 
+.env
+npm start
 # misc
 .DS_Store
 .env.local
