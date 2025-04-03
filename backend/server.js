@@ -2,28 +2,40 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-// Add after middleware
-const projectRoutes = require('./routes/projectRoutes');
+const connectDB = require('./config/db');
 
+// Create Express app
 const app = express();
+
+// Connect to MongoDB
+connectDB();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('MongoDB connection error:', err));
+// Routes
+app.use('/api/projects', require('./routes/projectRoutes'));
 
-app.use('/api/projects', projectRoutes);
-
-// Basic route
+// Test route
 app.get('/', (req, res) => {
   res.send('Portfolio Backend API');
+});
+
+// Test DB connection
+app.get('/test-db', async (req, res) => {
+  try {
+    await mongoose.connection.db.admin().ping();
+    res.send('Database connection successful!');
+  } catch (err) {
+    res.status(500).send('Database connection failed: ' + err.message);
+  }
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 const PORT = process.env.PORT || 5000;
