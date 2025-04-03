@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection/HeroSection';
 import AboutSection from '../components/AboutSection/AboutSection';
 import SkillsSection from '../components/SkillsSection/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection/ProjectsSection';
+import ContactSection from '../components/ContactSection/ContactSection';
 import './Home.css';
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <ContactSection />
 
       {/* Other sections will go here */}
     </div>
