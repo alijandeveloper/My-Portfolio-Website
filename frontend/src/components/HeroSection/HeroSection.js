@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HeroSection.css';
-import profileImage from '../HeroSection/assets/profile.png'; // Replace with your image
+import profileImage from '../assets/profile.png'; // Replace with your image
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');

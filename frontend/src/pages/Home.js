@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Layout/Header';
 import HeroSection from '../components/HeroSection/HeroSection';
+import AboutSection from '../components/AboutSection/AboutSection';
 import './Home.css';
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
     <div className="home-container">
       <Header />
       <HeroSection />
+      <AboutSection />
       {/* Other sections will go here */}
     </div>
   );

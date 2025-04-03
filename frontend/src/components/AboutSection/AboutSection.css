@@ -1,0 +1,152 @@
+/* About Section Styles */
+.about-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #2d3748;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #1976d2;
+  }
+  
+  .about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  
+  .about-image {
+    flex: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .about-image:hover img {
+    transform: scale(1.03);
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .about-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-icon {
+    font-size: 1.5rem;
+    color: #1976d2;
+    margin-bottom: 1rem;
+  }
+  
+  .about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+  }
+  
+  .about-card p {
+    color: #4a5568;
+    font-size: 0.9rem;
+  }
+  
+  .about-description {
+    margin-bottom: 1.5rem;
+    color: #4a5568;
+    line-height: 1.6;
+  }
+  
+  .cta-button {
+    background-color: #1976d2;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .cta-button:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .about-content {
+      flex-direction: column;
+    }
+    
+    .about-image {
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-cards {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .about-card {
+      padding: 1rem;
+    }
+  }
