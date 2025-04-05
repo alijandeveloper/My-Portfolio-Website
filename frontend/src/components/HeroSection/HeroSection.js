@@ -8,10 +8,11 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const skills = [
-    "Full Stack Developer",
-    "MERN Specialist",
+    "Website Developer",
     "UI/UX Designer",
-    "Problem Solver"
+    "MERN Specialist",
+    "Photo/Video Editor",
+    "Front End Designer"
   ];
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const HeroSection = () => {
     <section id="home" className="hero-section">
       <div className="hero-content">
         <div className="text-content">
-          <h1 className="name-title">Hi, I'm <span className="highlight">[Your Name]</span></h1>
+          <h1 className="name-title">Hi, I'm <span className="highlight">ALI JAN</span></h1>
           <h2 className="static-text">I AM</h2>
           <h2 className="animated-text">
             {displayText}
