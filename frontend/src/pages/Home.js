@@ -6,6 +6,9 @@ import SkillsSection from '../components/SkillsSection/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection/ProjectsSection';
 import ContactSection from '../components/ContactSection/ContactSection';
 import './Home.css';
+import Footer from '../components/Layout/Footer';
+
+// At the bottom of your page layout
 
 const Home = () => {
   return (
@@ -16,6 +19,7 @@ const Home = () => {
       <SkillsSection />
       <ProjectsSection />
       <ContactSection />
+<Footer />
 
       {/* Other sections will go here */}
     </div>
