@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './HeroSection.css';
-import profileImage from '../assets/profile.png'; // Replace with your image
+import profileImage from '../assets/profile.png';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  
-  const skills = [
-    "Website Developer",
-    "UI/UX Designer",
-    "MERN Specialist",
-    "Photo/Video Editor",
-    "Front End Designer"
-  ];
 
   useEffect(() => {
+    const skills = [
+      "Website Developer",
+      "UI/UX Designer",
+      "MERN Specialist",
+      "Photo/Video Editor",
+      "Front End Designer"
+    ];
+    
     const typingSpeed = isDeleting ? 50 : 100;
     const currentSkill = skills[currentSkillIndex];
     
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, currentSkillIndex, isDeleting, skills]);
+  }, [displayText, currentSkillIndex, isDeleting]); // Removed skills from dependencies
 
   return (
     <section id="home" className="hero-section">

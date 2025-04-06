@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './ContactSection.css';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import { motion } from 'framer-motion';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +10,7 @@ const ContactSection = () => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,39 +29,45 @@ const ContactSection = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Submit logic (e.g., API call)
-      console.log('Form submitted:', formData);
+    if (!validateForm()) return;
+    
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+      
       setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      alert(error.message || 'Error sending message');
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <section id="contact" className="contact-section">
       <div className="container">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="section-title">
           Get In Touch
           <span className="title-underline"></span>
-        </motion.h2>
+        </h2>
 
         <div className="contact-content">
-          <motion.div 
-            className="contact-info"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div className="contact-info">
             <h3>Let's Connect</h3>
             <p>
               Have a project in mind or want to discuss opportunities?  
@@ -82,16 +88,9 @@ const ContactSection = () => {
                 <FaEnvelope className="social-icon" />
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.form 
-            className="contact-form"
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -131,10 +130,14 @@ const ContactSection = () => {
               {errors.message && <span className="error-message">{errors.message}</span>}
             </div>
 
-            <button type="submit" className="submit-btn">
-              {isSubmitted ? 'Message Sent!' : 'Send Message'}
+            <button 
+              type="submit" 
+              className="submit-btn"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Sending...' : isSubmitted ? 'Message Sent!' : 'Send Message'}
             </button>
-          </motion.form>
+          </form>
         </div>
       </div>
     </section>
