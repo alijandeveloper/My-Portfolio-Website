@@ -3,41 +3,41 @@ import './SkillsSection.css';
 
 const skills = [
   { 
-    name: 'JavaScript', 
+    name: 'MERN Stack Development', 
     level: 90, 
-    color: '#f0db4f',
-    description: 'ES6+, Async/Await, Functional Programming' 
-  },
-  { 
-    name: 'React', 
-    level: 85, 
-    color: '#61dbfb',
-    description: 'Hooks, Context API, Performance Optimization' 
-  },
-  { 
-    name: 'Node.js', 
-    level: 80, 
-    color: '#68a063',
-    description: 'Express, REST APIs, Authentication' 
-  },
-  { 
-    name: 'MongoDB', 
-    level: 75, 
-    color: '#4db33d',
-    description: 'Schema Design, Aggregation, Indexing' 
-  },
-  { 
-    name: 'CSS/Sass', 
-    level: 85, 
-    color: '#2965f1',
-    description: 'Flexbox, Grid, Animations, BEM Methodology' 
+    color: '#6c5ce7',
+    description: 'MongoDB, Express, React, Node.js - Full stack web applications' 
   },
   { 
     name: 'UI/UX Design', 
-    level: 70, 
+    level: 85, 
     color: '#a259ff',
-    description: 'Wireframing, Prototyping, User Flows' 
+    description: 'Figma, Adobe XD, User flows, Wireframing, Prototyping' 
   },
+  { 
+    name: 'Frontend Development', 
+    level: 88, 
+    color: '#0984e3',
+    description: 'React, Next.js, Responsive Design, Performance Optimization' 
+  },
+  { 
+    name: 'Photo/Video Editing', 
+    level: 80, 
+    color: '#e17055',
+    description: 'Adobe Photoshop, Premiere Pro, DaVinci Resolve, Motion Graphics' 
+  },
+  { 
+    name: 'AI Content Creation', 
+    level: 75, 
+    color: '#00cec9',
+    description: 'AI-generated visuals, Logos, Videos using Midjourney/DALL-E' 
+  },
+  { 
+    name: 'Technical Content Creation', 
+    level: 82, 
+    color: '#fd79a8',
+    description: 'Technical tutorials, Product demos, Educational content' 
+  }
 ];
 
 const SkillsSection = () => {
@@ -52,7 +52,7 @@ const SkillsSection = () => {
     <section id="skills" className="skills-section">
       <div className="container">
         <h2 className="section-title">
-          Technical Proficiency
+          Core Competencies
           <span className="title-underline"></span>
         </h2>
 
@@ -73,7 +73,7 @@ const SkillsSection = () => {
                 </div>
                 <div className="skill-title">
                   <h3>{skill.name}</h3>
-                  <span className="skill-level">{skill.level}% Mastery</span>
+                  <span className="skill-level">{skill.level}% Proficiency</span>
                 </div>
               </div>
               
