@@ -5,38 +5,44 @@ const skills = [
   { 
     name: 'MERN Stack Development', 
     level: 90, 
-    color: '#6c5ce7',
-    description: 'MongoDB, Express, React, Node.js - Full stack web applications' 
+    color: '#F7374F',
+    description: 'MongoDB, Express, React, Node.js - Full stack web applications',
+    icon: '💻'
   },
   { 
     name: 'UI/UX Design', 
     level: 85, 
-    color: '#a259ff',
-    description: 'Figma, Adobe XD, User flows, Wireframing, Prototyping' 
+    color: '#F7374F',
+    description: 'Figma, Adobe XD, User flows, Wireframing, Prototyping',
+    icon: '🎨'
   },
   { 
     name: 'Frontend Development', 
     level: 88, 
-    color: '#0984e3',
-    description: 'React, Next.js, Responsive Design, Performance Optimization' 
+    color: '#F7374F',
+    description: 'React, Next.js, Responsive Design, Performance Optimization',
+    icon: '🖥️'
   },
   { 
     name: 'Photo/Video Editing', 
     level: 80, 
-    color: '#e17055',
-    description: 'Adobe Photoshop, Premiere Pro, DaVinci Resolve, Motion Graphics' 
+    color: '#F7374F',
+    description: 'Adobe Photoshop, Premiere Pro, DaVinci Resolve, Motion Graphics',
+    icon: '📷'
   },
   { 
     name: 'AI Content Creation', 
     level: 75, 
-    color: '#00cec9',
-    description: 'AI-generated visuals, Logos, Videos using Midjourney/DALL-E' 
+    color: '#F7374F',
+    description: 'AI-generated visuals, Logos, Videos using Midjourney/DALL-E',
+    icon: '🤖'
   },
   { 
     name: 'Technical Content Creation', 
     level: 82, 
-    color: '#fd79a8',
-    description: 'Technical tutorials, Product demos, Educational content' 
+    color: '#F7374F',
+    description: 'Technical tutorials, Product demos, Educational content',
+    icon: '✍️'
   }
 ];
 
@@ -52,7 +58,7 @@ const SkillsSection = () => {
     <section id="skills" className="skills-section">
       <div className="container">
         <h2 className="section-title">
-          Core Competencies
+          <span className="title-text">Core Competencies</span>
           <span className="title-underline"></span>
         </h2>
 
@@ -69,11 +75,11 @@ const SkillsSection = () => {
             >
               <div className="skill-header">
                 <div className="skill-icon" style={{ backgroundColor: `${skill.color}20` }}>
-                  <span style={{ color: skill.color }}>{skill.name.charAt(0)}</span>
+                  <span className="icon" style={{ color: skill.color }}>{skill.icon}</span>
                 </div>
                 <div className="skill-title">
                   <h3>{skill.name}</h3>
-                  <span className="skill-level">{skill.level}% Proficiency</span>
+                  <span className="skill-level">{skill.level}%</span>
                 </div>
               </div>
               
@@ -84,7 +90,8 @@ const SkillsSection = () => {
                   className="skill-progress"
                   style={{
                     width: animate ? `${skill.level}%` : '0%',
-                    backgroundColor: skill.color
+                    backgroundColor: skill.color,
+                    boxShadow: `0 0 8px ${skill.color}`
                   }}
                 />
               </div>

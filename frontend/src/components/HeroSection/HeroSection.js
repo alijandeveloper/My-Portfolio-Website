@@ -16,7 +16,8 @@ const HeroSection = () => {
       "Front End Designer"
     ];
     
-    const typingSpeed = isDeleting ? 50 : 100;
+    const typingSpeed = isDeleting ? 30 : 80;
+    const pauseTime = 1500;
     const currentSkill = skills[currentSkillIndex];
     
     const handleTyping = () => {
@@ -27,7 +28,7 @@ const HeroSection = () => {
       }
 
       if (!isDeleting && displayText === currentSkill) {
-        setTimeout(() => setIsDeleting(true), 1500);
+        setTimeout(() => setIsDeleting(true), pauseTime);
       } else if (isDeleting && displayText === '') {
         setIsDeleting(false);
         setCurrentSkillIndex((prevIndex) => 
@@ -38,31 +39,52 @@ const HeroSection = () => {
 
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, currentSkillIndex, isDeleting]); // Removed skills from dependencies
+  }, [displayText, currentSkillIndex, isDeleting]);
 
   return (
     <section id="home" className="hero-section">
       <div className="hero-content">
         <div className="text-content">
-          <h1 className="name-title">Hi, I'm <span className="highlight">ALI JAN</span></h1>
-          <h2 className="static-text">I AM</h2>
+          <h1 className="name-title">
+            <span className="greeting">Hello, I'm</span>
+            <span className="highlight">ALI JAN</span>
+          </h1>
+          <h2 className="static-text">Professional</h2>
           <h2 className="animated-text">
             {displayText}
             <span className="cursor">|</span>
           </h2>
+          <p className="hero-description">
+            Creating beautiful, functional digital experiences with a focus on 
+            user-centered design and clean, efficient code.
+          </p>
           <div className="hero-buttons">
-            <button className="primary-btn">Download CV</button>
-            <button className="secondary-btn">Contact Me</button>
+            <button className="primary-btn">
+              <span className="btn-text">Download CV</span>
+              <span className="btn-icon">↓</span>
+            </button>
+            <button className="secondary-btn">
+              <span className="btn-text">Contact Me</span>
+              <span className="btn-icon">→</span>
+            </button>
+          </div>
+          <div className="social-links1">
+            <a href="#" className="social-link1">LinkedIn</a>
+            <span className="divider">•</span>
+            <a href="#" className="social-link1">GitHub</a>
+            <span className="divider">•</span>
+            <a href="#" className="social-link1">Dribbble</a>
           </div>
         </div>
         <div className="image-content">
           <div className="profile-image-container">
             <img 
               src={profileImage} 
-              alt="Profile" 
+              alt="Ali Jan" 
               className="profile-image"
             />
             <div className="image-border"></div>
+            <div className="image-glow"></div>
           </div>
         </div>
       </div>

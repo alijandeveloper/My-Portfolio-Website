@@ -45,7 +45,7 @@ const ProjectsSection = () => {
     <section id="projects" className="projects-section">
       <div className="container">
         <h2 className="section-title">
-          Featured Projects
+          <span className="title-text">Featured Projects</span>
           <span className="title-underline"></span>
         </h2>
 
@@ -62,7 +62,26 @@ const ProjectsSection = () => {
                   alt={project.title} 
                   className="project-image"
                 />
-                <div className="project-overlay"></div>
+                <div className="project-overlay">
+                  <div className="overlay-content">
+                    <a 
+                      href={project.github} 
+                      className="project-link overlay-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiGithub className="link-icon" />
+                    </a>
+                    <a 
+                      href={project.live} 
+                      className="project-link overlay-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FiExternalLink className="link-icon" />
+                    </a>
+                  </div>
+                </div>
               </div>
               
               <div className="project-content">
@@ -74,17 +93,6 @@ const ProjectsSection = () => {
                     <span key={i} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                
-                <div className="project-links">
-                  <a href={project.github} className="project-link">
-                    <FiGithub className="link-icon" />
-                    Code
-                  </a>
-                  <a href={project.live} className="project-link">
-                    <FiExternalLink className="link-icon" />
-                    Live Demo
-                  </a>
-                </div>
               </div>
             </div>
           ))}
@@ -93,6 +101,7 @@ const ProjectsSection = () => {
         {visibleProjects < projects.length && (
           <button className="load-more-btn" onClick={loadMore}>
             Show More Projects
+            <span className="btn-arrow">→</span>
           </button>
         )}
       </div>

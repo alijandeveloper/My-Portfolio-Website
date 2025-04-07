@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutSection.css';
-import aboutImage from '../assets/profile.png'; // Replace with your image
+import aboutImage from '../assets/profile.png';
 import { FaAward, FaUsers, FaFolder } from 'react-icons/fa';
 
 const AboutSection = () => {
@@ -17,6 +17,8 @@ const AboutSection = () => {
         <div className="about-content">
           <div className="about-image">
             <img src={aboutImage} alt="About Me" />
+            <div className="image-border"></div>
+            <div className="image-glow"></div>
           </div>
           <div className="about-text">
             <div className="about-cards">

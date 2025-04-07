@@ -1,7 +1,19 @@
 /* Skills Section Styles */
 .skills-section {
   padding: 8rem 0;
-  background-color: #f8faff;
+  background-color: #1A1A1D;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #F7374F, #1A1A1D);
 }
 
 .container {
@@ -12,10 +24,10 @@
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 5rem;
-  color: #2d3748;
   position: relative;
+  color: white!important;
   font-weight: 700;
 }
 
@@ -26,7 +38,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #1976d2, #00bcd4);
+  background-color: #F7374F;
   border-radius: 2px;
 }
 
@@ -37,32 +49,50 @@
 }
 
 .skill-item {
-  background: white;
-  padding: 2rem;
+  background: #252529;
+  padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   transform: translateY(20px);
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  border: 1px solid #2e2e32;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(247, 55, 79, 0.05) 0%, rgba(247, 55, 79, 0.01) 100%);
+  z-index: 0;
 }
 
 .skill-header {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.skill-icon .icon {
+  font-size: 1.8rem;
 }
 
 .skill-title {
@@ -70,46 +100,69 @@
 }
 
 .skill-title h3 {
-  font-size: 1.3rem;
-  color: #2d3748;
-  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .skill-level {
-  font-size: 0.9rem;
-  color: #718096;
+  font-size: 1rem;
+  color: #b0b2b5;
   font-weight: 500;
 }
 
 .skill-description {
-  color: #4a5568;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  color: #b0b2b5;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-bar {
   width: 100%;
   height: 8px;
-  background-color: #edf2f7;
+  background-color: #2e2e32;
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .skill-progress {
   height: 100%;
   border-radius: 4px;
   transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+  opacity: 0.3;
 }
 
 /* Hover Effects */
 .skill-item:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) !important;
+  box-shadow: 0 15px 40px rgba(247, 55, 79, 0.2);
+  border-color: rgba(247, 55, 79, 0.3);
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(247, 55, 79, 0.3);
 }
 
 .skill-item:hover .skill-progress {
-  filter: drop-shadow(0 0 4px currentColor);
+  filter: brightness(1.1);
 }
 
 /* Responsive Styles */
@@ -121,15 +174,16 @@
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .skill-item {
-    padding: 1.8rem;
+    padding: 2rem;
   }
 }
 
@@ -139,12 +193,16 @@
   }
   
   .skill-header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
   
   .skill-icon {
-    width: 45px;
-    height: 45px;
-    margin-right: 1rem;
+    width: 50px;
+    height: 50px;
+    margin-right: 1.2rem;
+  }
+
+  .skill-title h3 {
+    font-size: 1.3rem;
   }
 }

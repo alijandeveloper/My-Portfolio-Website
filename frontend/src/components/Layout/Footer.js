@@ -10,13 +10,29 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h3 className="footer-logo">Ali JAN</h3>
-            <p className="footer-tagline">Building digital experiences that matter</p>
+            <h3 className="footer-logo">ALI JAN</h3>
+            <p className="footer-tagline">
+              Full Stack Developer | MERN Specialist | Digital Creator
+            </p>
+            <div className="footer-social">
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FaLinkedin className="social-icon" />
+              </a>
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FaGithub className="social-icon" />
+              </a>
+              <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FaTwitter className="social-icon" />
+              </a>
+              <a href="mailto:your.email@example.com" className="social-link">
+                <FaEnvelope className="social-icon" />
+              </a>
+            </div>
           </div>
 
           <div className="footer-links">
             <div className="footer-column">
-              <h4>Navigation</h4>
+              <h4>Quick Links</h4>
               <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -27,37 +43,30 @@ const Footer = () => {
             </div>
 
             <div className="footer-column">
-              <h4>Connect</h4>
+              <h4>Resources</h4>
               <ul>
-                <li>
-                  <a href="mailto:your.email@example.com">
-                    <FaEnvelope className="footer-icon" /> Email
-                  </a>
-                </li>
-                <li>
-                  <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-                    <FaLinkedin className="footer-icon" /> LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="footer-icon" /> GitHub
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">
-                    <FaTwitter className="footer-icon" /> Twitter
-                  </a>
-                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">GitHub Repos</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-column">
+              <h4>Contact</h4>
+              <ul>
+                <li><a href="mailto:your.email@example.com">your.email@example.com</a></li>
+                <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                <li>Based in City, Country</li>
               </ul>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>© {currentYear} Ali Jan. All rights reserved.</p>
+          <p>© {currentYear} <span className="highlight">Ali Jan</span>. All rights reserved.</p>
           <p className="footer-credits">
-            Built with React and ❤️
+            Built with <span className="highlight">React</span> and <span className="heart">❤️</span>
           </p>
         </div>
       </div>

@@ -1,11 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import './Header.css'; // We'll create this CSS file
+import './Header.css';
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+      
+      // Get all sections
+      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      let currentSection = 'home';
+      
+      // Find which section is currently in view
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Check if at least 50% of the section is visible
+          if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { id: 'home', text: 'Home' },
@@ -17,54 +45,63 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
-        {/* Website name on the left */}
-        <div className="header-brand">My Portfolio</div>
+      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+        <div className="header-brand">
+          <span className="logo-part">ALI</span>
+          <span className="logo-accent">X</span>
+          <span className="logo-part">JAN</span>
+        </div>
         
-        {/* Desktop navigation - will hide on mobile */}
         <nav className="desktop-nav">
           {navItems.map((item) => (
             <Link
               key={item.id}
-              className="nav-link"
+              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
               to={item.id}
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
+              onSetActive={() => setActiveSection(item.id)}
             >
-              {item.text}
+              <span className="nav-text">{item.text}</span>
+              <span className="nav-hover"></span>
             </Link>
           ))}
         </nav>
 
-        {/* Mobile menu button on the right */}
         <button 
-          className="mobile-menu-button" 
+          className={`mobile-menu-button ${mobileOpen ? 'open' : ''}`}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
         >
-          {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+          <span className="menu-line"></span>
+          <span className="menu-line"></span>
+          <span className="menu-line"></span>
         </button>
       </header>
 
-      {/* Mobile menu drawer */}
       <div className={`mobile-drawer ${mobileOpen ? 'open' : ''}`}>
-        <nav className="mobile-nav">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="mobile-nav-link"
-              to={item.id}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.text}
-            </Link>
-          ))}
-        </nav>
+        <div className="drawer-content">
+          <nav className="mobile-nav">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                to={item.id}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                onClick={() => setMobileOpen(false)}
+                onSetActive={() => setActiveSection(item.id)}
+              >
+                <span className="mobile-link-text">{item.text}</span>
+                <span className="mobile-link-hover"></span>
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </>
   );
