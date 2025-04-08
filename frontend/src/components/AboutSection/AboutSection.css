@@ -65,7 +65,7 @@
   z-index: 2;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 8px solid #252529;
+  /* border: 8px solid #252529; */
 }
 
 .image-border {
@@ -74,7 +74,7 @@
   left: -15px;
   right: 15px;
   bottom: 15px;
-  border: 3px solid #F7374F;
+  /* border: 3px solid #F7374F; */
   border-radius: 8px;
   z-index: 1;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);

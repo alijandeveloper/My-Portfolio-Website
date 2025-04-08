@@ -77,7 +77,8 @@ const ContactSection = () => {
             <div className="contact-details">
               <div className="detail-item">
                 <FaEnvelope className="detail-icon" />
-                <span>youremail@example.com</span>
+                <span>alijandeveloper15@gmail.com
+                </span>
               </div>
             </div>
 

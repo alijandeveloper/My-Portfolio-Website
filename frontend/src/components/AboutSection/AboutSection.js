@@ -5,9 +5,9 @@ import { FaAward, FaUsers, FaFolder } from 'react-icons/fa';
 
 const AboutSection = () => {
   const stats = [
-    { icon: <FaAward className="about-icon" />, number: '5+', text: 'Years Experience' },
-    { icon: <FaUsers className="about-icon" />, number: '50+', text: 'Clients' },
-    { icon: <FaFolder className="about-icon" />, number: '80+', text: 'Projects' }
+    { icon: <FaAward className="about-icon" />, number: '3+', text: 'Years Experience' },
+    { icon: <FaUsers className="about-icon" />, number: '30+', text: 'Clients' },
+    { icon: <FaFolder className="about-icon" />, number: '50+', text: 'Projects' }
   ];
 
   return (

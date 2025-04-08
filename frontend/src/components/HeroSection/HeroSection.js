@@ -69,11 +69,11 @@ const HeroSection = () => {
             </button>
           </div>
           <div className="social-links1">
-            <a href="#" className="social-link1">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/ali-jan26/" className="social-link1">LinkedIn</a>
             <span className="divider">•</span>
-            <a href="#" className="social-link1">GitHub</a>
+            <a href="https://www.linkedin.com/in/ali-jan26/" className="social-link1">GitHub</a>
             <span className="divider">•</span>
-            <a href="#" className="social-link1">Dribbble</a>
+            <a href="mailto:alijandeveloper15@gmail.com" className="social-link1">Email</a>
           </div>
         </div>
         <div className="image-content">

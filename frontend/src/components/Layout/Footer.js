@@ -15,16 +15,16 @@ const Footer = () => {
               Full Stack Developer | MERN Specialist | Digital Creator
             </p>
             <div className="footer-social">
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.linkedin.com/in/ali-jan26/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaLinkedin className="social-icon" />
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/alijandeveloper" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaGithub className="social-icon" />
               </a>
               <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaTwitter className="social-icon" />
               </a>
-              <a href="mailto:your.email@example.com" className="social-link">
+              <a href="mailto:alijandeveloper15@gmail.com" className="social-link">
                 <FaEnvelope className="social-icon" />
               </a>
             </div>
@@ -55,9 +55,10 @@ const Footer = () => {
             <div className="footer-column">
               <h4>Contact</h4>
               <ul>
-                <li><a href="mailto:your.email@example.com">your.email@example.com</a></li>
-                <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                <li>Based in City, Country</li>
+                <li><a href="mailto:your.email@example.com">alijandeveloper15@gmail.com
+                </a></li>
+                <li><a href="tel:+1234567890">+92 3143 444 215</a></li>
+                <li>Based in Sargodha, Pakistan</li>
               </ul>
             </div>
           </div>
