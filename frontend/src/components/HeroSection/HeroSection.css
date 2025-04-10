@@ -213,12 +213,16 @@
   bottom: -15px;
   border-radius: 50%;
   background: conic-gradient(
-    #00000000,
-    #00000000,
-    #00000000,
-    #00000000,
-    #00000000,
-    #F7374F
+    #a00c0c00,
+    #a00c0c00,
+    #F7374F,
+    #a00c0c00,
+    #a00c0c00,
+    #F7374F,
+    #a00c0c00,
+    #a00c0c00,
+    #F7374F,
+    #a00c0c00
   );
   z-index: 1;
   animation: rotateBorder 3s linear infinite;
