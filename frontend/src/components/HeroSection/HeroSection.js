@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HeroSection.css';
-import profileImage from '../assets/profile.png';
+import profileImage from '../assets/hero.png';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
