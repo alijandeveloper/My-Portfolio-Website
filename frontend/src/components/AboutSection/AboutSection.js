@@ -15,10 +15,10 @@ const AboutSection = () => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
-          <div className="about-image">
-            <img src={aboutImage} alt="About Me" />
-            <div className="image-border"></div>
-            <div className="image-glow"></div>
+          <div className="about-image-container">
+            <div className="profile-frame">
+              <img src={aboutImage} alt="About Me" className="profile-photo" />
+            </div>
           </div>
           <div className="about-text">
             <div className="about-cards">
