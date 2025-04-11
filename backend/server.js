@@ -20,6 +20,12 @@ mongoose.connect(process.env.MONGODB_URI)
 // Routes
 app.use('/api/contact', contactRoutes);
 
+app.get('/',(req,res) => {
+  res.send({
+    activestatus:true, 
+    error:false, 
+  })
+})
 // Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
