@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ContactSection.css';
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import axios from 'axios';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -36,21 +37,21 @@ const ContactSection = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post(
+        process.env.REACT_APP_API_URL || 'http://localhost:5000/api/contact',
+        formData,
+        {
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
       
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to send message');
+      if (response.status >= 200 && response.status < 300) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        throw new Error(response.data?.message || 'Failed to send message');
       }
-      
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 3000);
     } catch (error) {
       alert(error.message || 'Error sending message');
     } finally {
@@ -77,17 +78,16 @@ const ContactSection = () => {
             <div className="contact-details">
               <div className="detail-item">
                 <FaEnvelope className="detail-icon" />
-                <span>alijandeveloper15@gmail.com
-                </span>
+                <span>alijandeveloper15@gmail.com</span>
               </div>
             </div>
 
             <div className="social-links">
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://www.linkedin.com/in/ali-jan26/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaLinkedin className="social-icon" />
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-link">
+              <a href="https://github.com/alijandeveloper" target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaGithub className="social-icon" />
                 <span>GitHub</span>
               </a>
