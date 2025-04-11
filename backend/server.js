@@ -7,7 +7,9 @@ const contactRoutes = require('./routes/contact');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "http:http://localhost:5000"
+}));
 app.use(express.json());
 
 // Database Connection
@@ -19,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/contact', contactRoutes);
 
 // Start Server
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
