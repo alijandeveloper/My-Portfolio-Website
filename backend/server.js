@@ -8,7 +8,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    "https://my-portfolio-website-iota-five.vercel.app" // Your frontend
+  ],
   credentials: true
 }));
 app.use(express.json());
@@ -39,9 +41,9 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Test Route
-app.get('/', (req, res) => {
-  res.json({ active: true, error: false });
+// In server.js
+app.get('/api/test', (req, res) => {
+  res.json({ status: "Backend is working!", timestamp: new Date() });
 });
 
 // Start Server
