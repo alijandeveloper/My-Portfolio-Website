@@ -38,7 +38,7 @@ const ContactSection = () => {
     
     try {
       const response = await axios.post(
-        process.env.REACT_APP_API_URL || 'http://localhost:5000/api/contact',
+        `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/contact`,
         formData,
         {
           headers: { 'Content-Type': 'application/json' }
@@ -53,12 +53,12 @@ const ContactSection = () => {
         throw new Error(response.data?.message || 'Failed to send message');
       }
     } catch (error) {
-      alert(error.message || 'Error sending message');
+      console.error('Submission error:', error);
+      alert(error.response?.data?.message || error.message || 'Error sending message');
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
     <section id="contact" className="contact-section">
       <div className="container">
